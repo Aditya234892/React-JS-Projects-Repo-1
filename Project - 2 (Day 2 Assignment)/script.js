@@ -10,7 +10,7 @@ const MyApp = () => {
 
             <div className = "paraDivs">
                 <p>
-                Downey made his acting comeback in the 2003 film The Singing Detective, after Mel Gibson paid his insurance bond because completion bond companies would not insure him.He went on to star in the black comedy Kiss Kiss Bang Bang (2005), the thriller Zodiac (2007), and the action comedy Tropic Thunder (2008), the latter which earned him an Academy Award nomination for Best Supporting Actor. Downey gained global recognition for starring as Iron Man in ten <a href = "https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe">Marvel Cinematic Universe</a> (MCU) films, from Iron Man (2008) to Avengers: Endgame (2019). He has also played Sherlock Holmes in Guy Ritchie's Sherlock Holmes (2009), which earned him his second Golden Globe, and in its sequel, Sherlock Holmes: A Game of Shadows (2011).
+                Downey made his acting comeback in the 2003 film The Singing Detective, after Mel Gibson paid his insurance bond because completion bond companies would not insure him.He went on to star in the black comedy Kiss Kiss Bang Bang (2005), the thriller Zodiac (2007), and the action comedy Tropic Thunder (2008), the latter which earned him an Academy Award nomination for Best Supporting Actor. Downey gained global recognition for starring as Iron Man in ten <a href = "https://en.wikipedia.org/wiki/Marvel_Cinematic_Universe" target="_blank">Marvel Cinematic Universe</a> (MCU) films, from Iron Man (2008) to Avengers: Endgame (2019). He has also played Sherlock Holmes in Guy Ritchie's Sherlock Holmes (2009), which earned him his second Golden Globe, and in its sequel, Sherlock Holmes: A Game of Shadows (2011).
                 </p>
             </div>
 
