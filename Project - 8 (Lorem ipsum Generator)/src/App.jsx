@@ -5,6 +5,14 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0);
   const [generateCount, setGenerateCount] = useState(0);
+  const handleGenerate = () => {
+    // const countValue = Number(count);
+    if (count > 15) {
+      alert("Looks like you are wanting too many paragraphs at a time 😵‍💫, slow down bro!! 🙂‍↔️");
+    } else {
+      setGenerateCount(count);
+    }
+  };
 
   return (
     <>
@@ -13,9 +21,8 @@ function App() {
         <div className='flex gap-5'>
           <label htmlFor="counter" className='text-xl text-white'>Paragraphs:</label>
           <input type="number" name="" id="counter" min={0} value={count} onChange={(e) => {setCount(e.target.value)}} className='py-1 px-3'/>
-          <button className='text-white px-4 py-1 bg-red-500 rounded-md active:scale-75 duration-75' onClick={ () => setGenerateCount(count)}>Generate</button>
+          <button className='text-white px-4 py-1 bg-red-500 rounded-md active:scale-75 duration-75' onClick={handleGenerate}>Generate</button>
         </div>
-        {console.log(count, generateCount)}
         <Paragraphs length = {generateCount}/>
       </div>  
     </>
