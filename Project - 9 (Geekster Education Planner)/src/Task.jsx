@@ -1,37 +1,41 @@
 import { useState } from "react";
 
+const updateLocalStorage = (updatedTasks) => {
+  // Update the localStorage with the new task array
+  localStorage.setItem('taskData', JSON.stringify(updatedTasks));
+  props.setTask(updatedTasks); // Update the parent state too
+};
+
 const Task = (props) => {
 //   console.log(props);
   const [count, setCount] = useState(0);
 
   const addValue = (id) => {
-    // console.log(id)
-    props.taskArray.map((Obj) => {
-        if (Obj.id === id) {
-          Obj.hours = Number(Obj.hours) + 1;
-          setCount(Obj.hours);
-        }
-    })
+    const updatedTasks = props.taskArray.map((Obj) => {
+      if (Obj.id === id) {
+        Obj.hours = Number(Obj.hours) + 1;
+      }
+      return Obj;
+    });
+    setCount(count + 1);
+    updateLocalStorage(updatedTasks); // Save changes to localStorage
   };
 
   const substractValue = (id) => {
-    // console.log(id)
-    props.taskArray.map((Obj) => {
-        if (Obj.id === id) {
-          Obj.hours -= 1;
-          setCount(Obj.hours);
-        }
-        if (Obj.hours < 0) {
-          Obj.hours = 0;
-          setCount(Obj.hours);
-        }
-    })
+    const updatedTasks = props.taskArray.map((Obj) => {
+      if (Obj.id === id && Obj.hours > 0) {
+        Obj.hours -= 1;
+      }
+      return Obj;
+    });
+    setCount(count - 1);
+    updateLocalStorage(updatedTasks); // Save changes to localStorage
   };
   return (
     <>
       {props.taskArray.map((Obj) => {
         return (
-          <div className="w-2/5 flex justify-center gap-8 bg-green-200 p-5 rounded">
+          <div className="w-2/5 flex justify-center gap-8 bg-green-200 p-5 rounded-xl">
             <h1 className="text-2xl font-semibold text-indigo-800">
               <span className="">{Obj.subject}</span> for{" "}
               <span className="text-red-800">{Obj.hours} Hours</span>

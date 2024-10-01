@@ -1,18 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Task from './Task';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [hours, setHours] = useState(0)
   const [subject, setSubject] = useState("");
   const [task, setTask] = useState([]);
+
+  useEffect(() => {
+    const taskData = localStorage.getItem('taskData');
+    if(taskData){
+      setTask(JSON.parse(taskData));
+    }
+  }, []);
+
   const addObj = () => {
     const newTask = {
       id: task.length + 1,
       subject: subject,
-      hours: count
+      hours: hours
     }
-    setTask([...task, newTask]);
+    const updatedTasks = [...task, newTask];
+    setTask(updatedTasks);
+    localStorage.setItem("taskData", JSON.stringify(updatedTasks));
+  }
+
+
+  const removeObj = () => {
+    localStorage.removeItem('taskData');
+    setTask([]);
   }
 
   // console.log(task);
@@ -23,9 +39,10 @@ function App() {
         <h1 className='text-6xl text-indigo-800 font-bold'>Task Scheduler ✍️</h1>
         <div className='flex gap-5 justify-center bg-indigo-950 p-5 rounded-lg text-indigo-200 text-xl'>
           <input type="text" placeholder='Subject' value={subject} onChange={(e) => {setSubject(e.target.value)}} className='px-3 py-1 rounded-md text-indigo-950'/>
-          <input type="number" min={0} max={24} placeholder='Hours' value={count} onChange={(e) => {setCount(e.target.value)}} className='w-1/5 px-3 py-1 rounded-md text-indigo-950'/>
-          {/* {console.log(subject, count)} */}
-          <button className='bg-red-500 py-1 px-3 rounded-lg text-indigo-950' onClick={addObj}>Add</button>
+          <input type="number" min={0} max={24} placeholder='Hours' value={hours} onChange={(e) => {setHours(e.target.value)}} className='w-1/5 px-3 py-1 rounded-md text-indigo-950'/>
+          {/* {console.log(subject, hours)} */}
+          <button className='bg-blue-500 py-1 px-3 rounded-lg text-white' onClick={addObj}>Add</button>
+          <button className='bg-red-500 py-1 px-3 rounded-lg text-white' onClick={removeObj}>Delete</button>
         </div>
         <div className="w-full flex flex-col gap-6 items-center rounded-xl">
             <Task taskArray = {task}/>  
