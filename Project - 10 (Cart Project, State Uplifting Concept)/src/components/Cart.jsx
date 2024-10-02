@@ -17,7 +17,7 @@ const Cart = (props) => {
 
     const handleRemove = () => {
         setCount(0);
-        props.getDecerment(props.price);
+        props.getRemove(props.price, count);
     }
 
     if(count>0){
