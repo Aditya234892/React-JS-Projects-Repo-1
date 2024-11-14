@@ -6,13 +6,46 @@ import BGG from "../assets/img/BackGroundChanger.png";
 import PP from '../assets/img/PokemonProject.png';
 import GF from '../assets/img/GeekFoods.png';
 import LBP from '../assets/img/LeaderBoardProject.png';
+import TVV from '../assets/img/TheVanillaVault.png';
+import CH from '../assets/img/ChoreHero.png';
+import IG from '../assets/img/ImageGenerator.png';
+import ISIG from '../assets/img/InfiniteScrollIImageGallery.png';
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
-  const projects = [
+  const projectsTab1 = [
+    {
+      
+      title: "The Vanilla Vault (Food Delivery App)",
+      description: "Design & Development using React JS, Tailwind CSS, and Firebase",
+      link: "https://the-vanilla-vault.vercel.app/",
+      imgUrl: TVV,
+      
+    },
+    {
+
+      title: "Chore Hero",
+      description: "Design & Development using React JS, Tailwind CSS",
+      link: "https://dndtodolist.vercel.app/",
+      imgUrl: CH, 
+    },
+    {
+
+      title: "Image Generator",
+      description: "Design & Development using React JS, Tailwind CSS",
+      link: "https://imagegeberatorapp.vercel.app/",
+      imgUrl: IG, 
+    },
+    {
+
+      title: "Infinite Scroll Image Gallery",
+      description: "Design & Development using React JS, Tailwind CSS",
+      link: "https://infinitescrollimagegallery.vercel.app/",
+      imgUrl: ISIG, 
+    },
     {
       title: "Pokemon Project",
       description: "Design & Development using JavaScript",
@@ -25,6 +58,8 @@ export const Projects = () => {
       link: "https://aditya234892.github.io/JavaScript-Projects/Project%20-%2022%20(Movie%20Search)/",
       imgUrl: MSA,
     },
+];
+  const projectsTab2 = [
     {
       title: "Background Changer",
       description: "Design & Development using React JS",
@@ -50,6 +85,7 @@ export const Projects = () => {
       imgUrl: LBP,
     },
   ];
+
 
   return (
     <section className="project" id="projects">
@@ -77,7 +113,7 @@ export const Projects = () => {
                     <Tab.Pane eventKey="first">
                       <Row>
                         {
-                          projects.map((project, index) => {
+                          projectsTab1.map((project, index) => {
                             return (
                               <ProjectCard
                                 key={index}
@@ -89,7 +125,18 @@ export const Projects = () => {
                       </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                      <p>To be Added..</p>
+                      <Row>
+                        {
+                          projectsTab2.map((project, index) => {
+                            return (
+                              <ProjectCard
+                                key={index}
+                                {...project}
+                                />
+                            )
+                          })
+                        }
+                      </Row>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
                     <p>To be Added..</p>
